@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingTransactionController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\HospitalSpecialistController;
+use App\Http\Controllers\MyOrderController;
 use App\Http\Controllers\SpecialistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,7 @@ Route::patch('/transactions/{id}/status' , [BookingTransactionController::class,
 
 Route::get('/doctors-filter', [DoctorController::class, 'filterBySpecialistAndHospital']);
 Route::get('/doctors/{doctorId}/available-slots', [DoctorController::class], 'availableSlots');
+
+Route::get('my-orders', [MyOrderController::class, 'index']);
+Route::post('my-orders', [MyOrderController::class, 'store']);
+Route::get('my-order/{id}', [MyOrderController::class, 'show']);
